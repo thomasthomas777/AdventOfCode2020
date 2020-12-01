@@ -1,17 +1,14 @@
+pop :: [a] -> [a]
+pop [] = []
+pop (x:xs) = xs
 
-sumAndMult3 :: (Num a, Eq a) => a -> a -> [a] -> a
-sumAndMult3 i j [] = 0
-sumAndMult3 i j (k:ks)
+
+sumAndMult3 :: (Num a, Eq a) => a -> [a] -> [a] -> a
+sumAndMult3 i [] [] = 0
+sumAndMult3 i (j:js) [] = sumAndMult3 i js (pop js)
+sumAndMult3 i (j:js) (k:ks)
     | i + j + k == 2020     = i * j * k
-    | otherwise             = sumAndMult3 i j ks
-
-
-conquerer2 :: (Num a, Eq a) => a -> [a] -> a
-conquerer2 i [] = 0
-conquerer2 i (j:js)
-    | r == 0     = conquerer2 i js 
-    | otherwise  = r
-        where r = sumAndMult3 i j js
+    | otherwise             = sumAndMult3 i (j:js) ks
 
 
 conquerer :: (Num a, Eq a) => [a] -> a
@@ -19,7 +16,7 @@ conquerer [] = 0
 conquerer (i:is)
     | r == 0     = conquerer is 
     | otherwise  = r
-        where r = conquerer2 i is
+        where r = sumAndMult3 i is (pop is)
 
 
 main = do
