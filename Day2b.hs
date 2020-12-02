@@ -22,6 +22,7 @@ conquerer (i:is) v
     | r == True  = conquerer is v+1
     | otherwise  = conquerer is v
         where r = validPassword (parsed (matchLine i))
+
 main = do
     contents <- readFile "Day2Data.txt"
     print ( conquerer ( lines ( contents ) ) 0)
