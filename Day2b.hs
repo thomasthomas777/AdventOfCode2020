@@ -6,13 +6,8 @@ data ParsedComponents = ParsedComponents Int Int Char String
 strToInt :: String -> Int
 strToInt a = read a :: Int
 
-verifyString :: Int -> Int -> Char -> String -> Bool
-verifyString mi ma c s = ((s !! (mi - 1)) == c) /= ((s !! (ma - 1)) == c)
-
-validPassword :: ParsedComponents -> Bool
-validPassword (ParsedComponents mi ma c s)
-    | verifyString mi ma c s == True    = True
-    | otherwise                         = False
+validPassword :: ParsedComponents-> Bool
+validPassword (ParsedComponents mi ma c s) = ((s !! (mi - 1)) == c) /= ((s !! (ma - 1)) == c)
               
 matchLine :: String -> [String]
 matchLine "" = [""]
