@@ -40,6 +40,7 @@ modifyLine l i
 
 modifyInstructions :: [String] -> Int -> Int
 modifyInstructions xs index
+    | xs == mod_xs  = modifyInstructions xs (index+1)
     | runval /= -1  = runval
     | runval == -1  = modifyInstructions xs (index+1)
         where   mod_xs = modifyLine xs index
