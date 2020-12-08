@@ -1,8 +1,4 @@
 import System.IO
-import Data.List
-import Data.List.Split
-import Data.Set (toList, fromList)
-import Text.Regex.Posix
 
 calculator :: Char -> Int -> String -> Int
 calculator '+' a b = (+) a (read b :: Int)
