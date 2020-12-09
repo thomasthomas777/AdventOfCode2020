@@ -1,7 +1,4 @@
 import System.IO
-import Data.List
-import Data.List.Split (splitOn)
-import Data.Set (toList, fromList)
 
 isValid :: [Int] -> Int -> Bool
 isValid xs c = (length $ filter (==c) [a + b | a <- xs, b <- xs]) > 0
