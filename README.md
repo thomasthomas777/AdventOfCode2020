@@ -2,7 +2,7 @@
 The Advent Of Code 2020 (https://adventofcode.com/2020) challenge solutions in Haskell. 
 
 # Prerequisite
-From a standard GHC installation, the following packages are required, to run all the solutions:
+From a standard GHC installation, the following Cabal packages are required, to run all the solutions:
 - regex-posix
 - split
 
