@@ -1,5 +1,5 @@
 # AdventOfCode2020
-The Advent Of Code 2020 challenge solutions in Haskell. 
+The Advent Of Code 2020 (https://adventofcode.com/2020) challenge solutions in Haskell. 
 
 # Prerequisite
 From a standard GHC installation, the following packages are required, to run all the solutions:
