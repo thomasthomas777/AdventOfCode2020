@@ -14,5 +14,5 @@ traverseSlope g t (Point a b)
           newPos = Point ((a+3) `mod` (length (g !! 0))) (b+1)
 
 main = do
-    contents <- readFile "Day3Data.txt"
+    contents <- readFile "Input.txt"
     print ( traverseSlope ( lines ( contents ) ) 0 (Point 0 0))

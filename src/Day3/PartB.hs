@@ -19,5 +19,5 @@ traverseIterations [] [] = 0
 traverseIterations g xs = foldl (*) 1 [(traverseSlope g 0 (Point 0 0) p) | p <- xs]
 
 main = do
-    contents <- readFile "Day3Data.txt"
+    contents <- readFile "Input.txt"
     print ( traverseIterations ( lines ( contents ) ) [(Point 1 1), (Point 3 1), (Point 5 1), (Point 7 1), (Point 1 2)])

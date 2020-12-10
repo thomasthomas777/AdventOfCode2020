@@ -25,5 +25,5 @@ conquerer (i:is) v
         where r = validPassword (parsed (matchLine i))
 
 main = do
-    contents <- readFile "Day2Data.txt"
+    contents <- readFile "Input.txt"
     print ( conquerer ( lines ( contents ) ) 0)

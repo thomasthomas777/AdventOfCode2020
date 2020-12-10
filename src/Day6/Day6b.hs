@@ -11,5 +11,5 @@ count :: [[String]] -> Int
 count = foldl (\x y -> (length $ foldr1 intersect y) + x) 0
 
 main = do
-    contents <- readFile "Day6Data.txt"
+    contents <- readFile "Input.txt"
     print $ count $ splitAndSetifyInput contents

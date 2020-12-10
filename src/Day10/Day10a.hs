@@ -8,5 +8,5 @@ calc (x:xs) p j1 j3
     | ((x - 3) == p) = calc xs x j1 (j3+1)
 
 main = do
-    contents <- readFile "Day10Data.txt"
+    contents <- readFile "Input.txt"
     print $ calc (sort $ map (\x -> read x :: Int) (lines contents)) 0 0 0

@@ -12,5 +12,5 @@ count xs x
                 z = isValid priorList currVal
 
 main = do
-    contents <- readFile "Day9Data.txt"
+    contents <- readFile "Input.txt"
     print $ count (map (\x -> read x :: Int) (lines contents)) 25

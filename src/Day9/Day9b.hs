@@ -11,5 +11,5 @@ contiguous xs (y:ys) i zs
               new_zs = y:zs
 
 main = do
-    contents <- readFile "Day9Data.txt"
+    contents <- readFile "Input.txt"
     print $ contiguous (map (\x -> read x :: Int) (lines contents)) [] 50047984 []

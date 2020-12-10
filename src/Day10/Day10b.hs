@@ -13,5 +13,5 @@ calc (x:xs) p m = calc xs x new_map
                         new_map = M.insert x sum' m
 
 main = do
-    contents <- readFile "Day10Data.txt"
+    contents <- readFile "Input.txt"
     print $ calc (sort $ map (\x -> read x :: Int) (lines contents)) 0 (M.fromList [(0, 1)])

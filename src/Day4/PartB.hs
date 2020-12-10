@@ -30,5 +30,5 @@ cleanLines :: [String] -> [String]
 cleanLines xs =  map (\x -> intercalate " " x) (splitOn [""] xs)
 
 main = do
-    contents <- readFile "Day4Data.txt"
+    contents <- readFile "Input.txt"
     print ( verifyPassports (cleanLines ( lines ( contents ) )))

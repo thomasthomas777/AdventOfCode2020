@@ -1,5 +1,6 @@
 import System.IO
 import Data.List
+import Data.List.Split
 import Data.Set (toList, fromList)
 import Text.Regex.Posix
 
@@ -18,15 +19,20 @@ parseLine s m r
               new_r = (r ++ [(head dependency_with_carry !! 2, (read (head dependency_with_carry !! 1) :: Int))])
               new_rr = (r ++ [(head dependency_no_carry !! 2, (read (head dependency_no_carry !! 1) :: Int))])
 
-identifyBag :: [BagDependency] -> String -> [(String, Int)]
-identifyBag ((BagDependency a b):xs) s
-    | a == s    = b
-    | otherwise = identifyBag xs s
+colourInsideBag :: String -> BagDependency -> [String]
+colourInsideBag c (BagDependency bc co) 
+    | c `elem` a = [bc]
+    | otherwise  = []
+         where a = [fst z | z <- co]
 
-countCost :: String -> [BagDependency] -> Int
-countCost _ [] = 0
-countCost s xs = 1 + foldl (\x y -> ((snd y) * (countCost (fst y) xs)) + x) 0 (identifyBag xs s)
+countColor :: String -> [BagDependency] -> [String]
+countColor s xs =  foldl (\x y -> (colourInsideBag s y) ++ x) [] xs
+
+countDependencies :: [String] -> [String] -> [BagDependency] -> Int
+countDependencies [] b xss = length $ toList $ fromList b
+countDependencies (x:xs) b xss = let dep = countColor x xss
+                                    in countDependencies (xs ++ dep) (b ++ dep) xss
 
 main = do
-    contents <- readFile "Day7Data.txt"
-    print $ (countCost "shiny gold" (map (\x -> parseLine x "" []) (lines contents))) - 1
+    contents <- readFile "Input.txt"
+    print $ countDependencies ["shiny gold"] [] (map (\x -> parseLine x "" []) (lines contents))
