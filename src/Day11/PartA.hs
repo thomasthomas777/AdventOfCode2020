@@ -1,19 +1,5 @@
 import System.IO
-
-seenSeat :: [String] -> Int -> Int -> Int -> Int -> Bool
-seenSeat g x y dx dy 
-    | ny >= max_y = False
-    | nx >= max_x = False
-    | ny < 0 = False
-    | nx < 0 = False
-    | curr_seat == '#' = True
-    | curr_seat == 'L' = False
-    | otherwise = False
-        where   nx = (+) x dx
-                ny = (+) y dy
-                max_x = length $ head g
-                max_y = length g
-                curr_seat = g !! ny !! nx
+import Control.Lens
 
 calc :: [String] -> [String] -> Int -> Int -> [String]
 calc orig_g new_grid x y
@@ -24,16 +10,11 @@ calc orig_g new_grid x y
         where max_x = length $ head orig_g
               max_y = length orig_g
               curr_seat = orig_g !! y !! x
-              u = seenSeat orig_g x y 0 (-1)
-              d = seenSeat orig_g x y 0 1
-              r = seenSeat orig_g x y 1 0
-              l = seenSeat orig_g x y (-1) 0
-              ul = seenSeat orig_g x y (-1) (-1)
-              ur = seenSeat orig_g x y 1 (-1)
-              dl = seenSeat orig_g x y (-1) 1
-              dr = seenSeat orig_g x y 1 1
-              sum' = sum $ map fromEnum [u, d, r, l, ul, ur, dl, dr]
-
+              neighbours = [
+                  (x-1, y+1), (x, y+1), (x+1, y+1),
+                  (x-1, y),             (x+1, y),
+                  (x-1, y-1), (x, y-1), (x+1, y-1)]
+              sum' = length $ filter (==True) $ map (\y -> case orig_g ^? element (snd y) . element (fst y) of {Just x -> (x == '#'); Nothing -> False}) neighbours
               refreshed_grid_elem = if (curr_seat == '#' && sum' >= 4) then 'L' else if (curr_seat == 'L' && sum' == 0) then '#' else curr_seat
 
 stabaliseGrid :: [String] -> Int

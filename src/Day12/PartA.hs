@@ -9,11 +9,11 @@ moveShip (z:zs) x y deg
     | dir == 'S' =  moveShip zs x (y - dist) deg
     | dir == 'E' =  moveShip zs (x + dist) y deg
     | dir == 'W' =  moveShip zs (x - dist) y deg
-    | dir == 'F' =  case () of 
-                        ()   | deg == 0 -> moveShip (("N" ++ tail z) : zs) x y deg
-                             | deg == 90 -> moveShip (("E" ++ tail z) : zs) x y deg
-                             | deg == 180 -> moveShip (("S" ++ tail z) : zs) x y deg
-                             | deg == 270 -> moveShip (("W" ++ tail z) : zs) x y deg
+    | dir == 'F' =  case deg of 
+                        0 -> moveShip (("N" ++ tail z) : zs) x y deg
+                        90 -> moveShip (("E" ++ tail z) : zs) x y deg
+                        180 -> moveShip (("S" ++ tail z) : zs) x y deg
+                        270 -> moveShip (("W" ++ tail z) : zs) x y deg
         where dir = head z
               dist = read (tail z) :: Int
 
