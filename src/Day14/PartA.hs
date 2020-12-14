@@ -32,8 +32,6 @@ process (x:xs) mask reg
               value_to_bin_filled = (replicate (mask_length - value_length) '0') ++ value_to_bin
               computed = applyMask (zip value_to_bin_filled mask) ""
 
-
-
 main = do
     contents <- readFile "Input.txt"
     print $ process (lines contents) "" M.empty
