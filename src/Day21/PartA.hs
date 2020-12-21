@@ -19,12 +19,9 @@ parseInput (i:is) g m = let cleaned = filter (\x -> not (x `elem` [',', '(', ')'
                                                                 else (M.insert a merged mm)) m allergens
                                 in parseInput is (g ++ ingredients) updated_m
 
-process :: (MapType, [String]) -> Int -> Int
-process (g, []) i = i
-process (g, (m:mm)) i = let a = M.foldl (\x y -> x ++ (S.toList y)) [] g in case (m `elem` a) of
-                                                                                    True -> process (g, mm) i
-                                                                                    False -> process (g, mm) (i+1)
+process :: (MapType, [String]) -> Int
+process (g, m) = let a = M.foldl (\x y -> x ++ (S.toList y)) [] g in length $ filter (\z -> not $ z `elem` a) m
 
 main = do
     contents <- readFile "Input.txt"
-    print $ (process (parseInput (lines contents) [] M.empty) 0)
+    print $ process $ (parseInput (lines contents) [] M.empty)
