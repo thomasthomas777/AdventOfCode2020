@@ -1,11 +1,5 @@
 import System.IO
-import Data.List
-import qualified Data.Map as M
-import qualified Data.Set as S
 import Data.List.Split (splitOn)
-
-type SetType = S.Set String
-type MapType = M.Map String SetType
 
 type Deck = ([Int], [Int])
 
@@ -18,7 +12,7 @@ parseInput l = let  x = splitOn "\n\n" l
                         in (a',b')
 
 computeWinning :: [Int] -> Int
-computeWinning x = sum $ map (\(a,b) -> a * b) (zip (reverse x) [1..])
+computeWinning x = sum $ zipWith (*) (reverse x) [1..]
 
 process :: Deck -> Int
 process ([], []) = error "Equal Draw"
