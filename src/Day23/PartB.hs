@@ -30,7 +30,7 @@ move (m, iter) _ = let  (Just p1) = M.lookup iter m
                             in (m''', tail_val)
     
 -- Using the recursive approach for incrementing the iteration from Part A, caused a stack overflow exception to be raised.
--- To resolve, the strict foldl implementation from an outer function was leveraged to reduce the number of recursive calls.
+-- To resolve, the strict foldl implementation from an outer function was leveraged to prevent build up of lazy evaluated components - otherwise, it builds up fast with non mutable maps.
 iterateMove :: (MapType, Int) -> Int -> Int
 iterateMove (m, a) max_iter = let   (m', aa) = foldl' (\x y -> (move x y)) (m, a) [1..(max_iter)]
                                     fst = M.findWithDefault 0 1 m'
