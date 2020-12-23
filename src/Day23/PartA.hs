@@ -2,7 +2,6 @@ import System.IO
 import Data.List
 import Data.Maybe (fromJust)
 import Data.Char (intToDigit)
-import Data.List.Split (splitOn)
 
 determineInsertion :: [Int] -> [Int] -> Int -> Int -> Int
 determineInsertion picked rest curr alt'
