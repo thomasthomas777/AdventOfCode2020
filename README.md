@@ -1,5 +1,5 @@
-# AdventOfCode2020
-The Advent Of Code 2020 (https://adventofcode.com/2020) challenge solutions in Haskell. 
+# Advent Of Code 2020
+The repository contains Haskell solutions to the Advent Of Code 2020 (https://adventofcode.com/2020) challenge.
 
 # Prerequisites
 From a standard GHC installation, the following Cabal packages are required, to run all the solutions:
