@@ -1,4 +1,4 @@
-# Advent Of Code 2020
+# Advent of Code 2020
 The repository contains Haskell based solutions to the Advent of Code 2020 (https://adventofcode.com/2020) challenge.
 
 # Prerequisites
