@@ -1,5 +1,5 @@
 # Advent Of Code 2020
-The repository contains Haskell based solutions to the Advent Of Code 2020 (https://adventofcode.com/2020) challenge.
+The repository contains Haskell based solutions to the Advent of Code 2020 (https://adventofcode.com/2020) challenge.
 
 # Prerequisites
 From a standard GHC installation, the following Cabal packages are required, to run all the solutions:
@@ -8,7 +8,7 @@ From a standard GHC installation, the following Cabal packages are required, to 
 - lens
 
 # Solutions
-Questions for each day of the 2020 Advent Of Code challenge and the respective Haskell based solution:
+Questions for each day of the 2020 Advent of Code challenge, and the respective Haskell based solution:
 
 Day 1: https://adventofcode.com/2020/day/1
 - [Day 1 Solution](src/Day1)
