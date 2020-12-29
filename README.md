@@ -8,7 +8,7 @@ From a standard GHC installation, the following Cabal packages are required, to 
 - lens
 
 # Solutions
-Each question and the respective Haskell solution:
+Questions for each day of the 2020 Advent Of Code challenge and the respective Haskell based solution:
 
 Day 1: https://adventofcode.com/2020/day/1
 - [Day 1 Solution](src/Day1)
