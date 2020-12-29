@@ -36,7 +36,6 @@ prepareMapper :: [Combinations] -> ([Combinations], MapType)
 prepareMapper is = let n = (floor $ sqrt $ fromIntegral $ ((length is) `quot` 8)) - 1
                                 in (is ,foldl (\a b -> M.insert b (0, [[]]) a) M.empty [(y, x) | y <- [0..n], x <- [0..n]])
 
-
 process :: [(Int, Int)] -> [(Int, Int)] -> ([Combinations], MapType) -> (M.Map (Int, Int) [Combinations]) -> ([Combinations], MapType)
 process [] ys (rc, m) d = (rc, m)
 process (x:xs) ys (rc, m) d
