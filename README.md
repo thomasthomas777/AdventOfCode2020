@@ -74,7 +74,7 @@ Day 21: https://adventofcode.com/2020/day/21
 - [Day 21 Solution](src/Day21)
 
 Day 22: https://adventofcode.com/2020/day/22
-- [Day 12 Solution](src/Day20)
+- [Day 22 Solution](src/Day22)
 
 Day 23: https://adventofcode.com/2020/day/23
 - [Day 23 Solution](src/Day23)
